@@ -9,7 +9,7 @@ export const Signup = () => {
   const createAccount = (e) => {
     e.preventDefault();
     fetch(
-      "https://3001-valerieclai-authenticat-cplhijbzn6p.ws-us84.gitpod.io/api/create_account?",
+      "https://3001-valerieclai-authenticat-p661o2oof76.ws-us85.gitpod.io/api/create_account",
       {
         method: "POST",
         body: JSON.stringify({

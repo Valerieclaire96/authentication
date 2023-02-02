@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react" ;
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -10,7 +10,7 @@ export const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     fetch(
-      "https://3001-valerieclai-authenticat-cplhijbzn6p.ws-us84.gitpod.io/api/login",
+      "https://3001-valerieclai-authenticat-p661o2oof76.ws-us85.gitpod.io/api/login",
       {
         method: "POST",
         body: JSON.stringify({
@@ -24,12 +24,15 @@ export const Login = () => {
         return Response.json();
       })
       .then((result) => {
-        if (typeof(result) == "string" && result.includes("Wrong email or password")) {
+        if (
+          typeof result == "string" &&
+          result.includes("Wrong email or password")
+        ) {
           setError("Wrong email or password");
         } else {
           console.log(result);
-          // Navigate("/login");
-          localStorage.setItem("jwt", result.access_token)
+          localStorage.setItem("jwt", result.access_token);
+          Navigate("/private_dashboard");
         }
       })
       .catch((error) => {

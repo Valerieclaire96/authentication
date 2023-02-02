@@ -51,8 +51,8 @@ def login():
         return jsonify("Wrong email or password")
 
 
-@api.route('/private_dashboard', methods=['GET'])
+@api.route('/token', methods=['GET'])
 @jwt_required()
-def getDashboardData():
+def validate_identity():
     current_user = get_jwt_identity()
     return jsonify(logged_in_as = current_user)
